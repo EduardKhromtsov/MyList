@@ -1,7 +1,7 @@
 ﻿
 #include <iostream>
 
-// Реализация односвязного списка.
+// Реализация односвязного списка
 
 template<typename T>
 class List
