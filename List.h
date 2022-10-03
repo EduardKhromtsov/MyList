@@ -15,6 +15,8 @@ public:
 
 	void insert(const T &Data, const int kIndex);
 
+	void removeAt(const int kIndex);
+
 	void pop_front();
 
 	void clear();

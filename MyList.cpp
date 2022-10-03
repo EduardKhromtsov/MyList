@@ -73,11 +73,31 @@ void List<T>::insert(const T &Data, const int kIndex)
 		for (int i = 0; i < kIndex - 1; ++i)
 			pPrevious = pPrevious->pNext;
 
-		Node<T> *pNewNode = new Node<T>(Data, pPrevious->pNext);
-
-		pPrevious->pNext = pNewNode;
+		pPrevious->pNext = new Node<T>(Data, pPrevious->pNext);
 
 		++iSize;
+	}
+}
+
+template<typename T>
+void List<T>::removeAt(const int kIndex)
+{
+	if (kIndex == 0)
+		pop_front();
+	else
+	{
+		Node<T> *pPrevious = this->pHead;
+
+		for (int i = 0; i < kIndex - 1; ++i)
+			pPrevious = pPrevious->pNext;
+
+		Node<T> *pToDelete = pPrevious->pNext;
+
+		pPrevious->pNext = pToDelete->pNext;
+
+		delete pToDelete;
+
+		--iSize;
 	}
 }
 
