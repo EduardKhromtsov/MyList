@@ -38,6 +38,12 @@ List<T>::List()
 }
 
 template<typename T>
+List<T>::~List()
+{
+	clear();
+}
+
+template<typename T>
 void List<T>::push_back(const T &Data)
 {
 	if (pHead == nullptr)

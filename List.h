@@ -7,6 +7,8 @@ class List
 public:
 	List();
 
+	~List();
+
 	void push_back(const T &Data);
 
 	void pop_front();
