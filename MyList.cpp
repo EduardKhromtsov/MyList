@@ -11,22 +11,15 @@ int main()
 
 	List<int> lst;
 	
-	lst.push_back(55);
+	lst.push_front(5);
+	lst.push_front(7);
 
-	lst.push_back(11);
-
-	lst.push_back(2);
+	lst.insert(10, 1);
 
 	for (int i = 0; i < lst.GetSize(); ++i)
 	{
 		std::cout << lst[i] << " ";
 	}
-
-	std::cout << "Элементов в списке " << lst.GetSize() << "\n\n" << "Выполняю метод clear" << "\n\n";
-
-	lst.clear();
-
-	std::cout << "Элементов в списке " << lst.GetSize() << "\n";
 	
 }
 
@@ -66,6 +59,26 @@ void List<T>::push_front(const T &Data)
 	pHead = new Node<T>(Data, pHead);
 
 	++iSize;
+}
+
+template<typename T>
+void List<T>::insert(const T &Data, const int kIndex)
+{
+	if (kIndex == 0)
+		push_front(Data);
+	else
+	{
+		Node<T>* pPrevious = this->pHead;
+
+		for (int i = 0; i < kIndex - 1; ++i)
+			pPrevious = pPrevious->pNext;
+
+		Node<T> *pNewNode = new Node<T>(Data, pPrevious->pNext);
+
+		pPrevious->pNext = pNewNode;
+
+		++iSize;
+	}
 }
 
 template<typename T>

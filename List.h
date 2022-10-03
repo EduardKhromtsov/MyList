@@ -13,6 +13,8 @@ public:
 
 	void push_front(const T &Data);
 
+	void insert(const T &Data, const int kIndex);
+
 	void pop_front();
 
 	void clear();
