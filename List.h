@@ -19,6 +19,8 @@ public:
 
 	void pop_front();
 
+	void pop_back();
+
 	void clear();
 
 	int GetSize() const;

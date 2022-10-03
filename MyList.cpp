@@ -13,8 +13,9 @@ int main()
 	
 	lst.push_front(5);
 	lst.push_front(7);
+	lst.push_front(10);
 
-	lst.insert(10, 1);
+	lst.pop_back();
 
 	for (int i = 0; i < lst.GetSize(); ++i)
 	{
@@ -111,6 +112,12 @@ void List<T>::pop_front()
 	delete Temp;
 
 	--iSize;
+}
+
+template<typename T>
+void List<T>::pop_back()
+{
+	removeAt(iSize - 1);
 }
 
 template<typename T>
