@@ -22,14 +22,9 @@ int main()
 		std::cout << lst[i] << " ";
 	}
 
-	std::cout << "Элементов в списке " << lst.GetSize() << "\n\n" << "Выполняю метод pop_front" << "\n\n";
+	std::cout << "Элементов в списке " << lst.GetSize() << "\n\n" << "Выполняю метод clear" << "\n\n";
 
-	lst.pop_front();
-
-	for (int i = 0; i < lst.GetSize(); ++i)
-	{
-		std::cout << lst[i] << " ";
-	}
+	lst.clear();
 
 	std::cout << "Элементов в списке " << lst.GetSize() << "\n";
 	
@@ -69,6 +64,13 @@ void List<T>::pop_front()
 	delete Temp;
 
 	--iSize;
+}
+
+template<typename T>
+void List<T>::clear()
+{
+	while (iSize)
+		pop_front();
 }
 
 template<typename T>
