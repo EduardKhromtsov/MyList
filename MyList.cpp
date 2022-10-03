@@ -7,22 +7,32 @@
 
 int main()
 {
+	setlocale(LC_ALL, "RU");
+
 	List<int> lst;
 	
-	lst.push_back(5);
+	lst.push_back(55);
 
-	lst.push_back(10);
+	lst.push_back(11);
 
-	lst.push_back(20);
+	lst.push_back(2);
 
-	std::cout << lst[2] << "\n";
+	for (int i = 0; i < lst.GetSize(); ++i)
+	{
+		std::cout << lst[i] << " ";
+	}
 
-	lst[2] = 300;
+	std::cout << "Элементов в списке " << lst.GetSize() << "\n\n" << "Выполняю метод pop_front" << "\n\n";
 
-	std::cout << lst[2] << "\n";
+	lst.pop_front();
 
+	for (int i = 0; i < lst.GetSize(); ++i)
+	{
+		std::cout << lst[i] << " ";
+	}
+
+	std::cout << "Элементов в списке " << lst.GetSize() << "\n";
 	
-
 }
 
 template<typename T>
@@ -33,7 +43,7 @@ List<T>::List()
 }
 
 template<typename T>
-void List<T>::push_back(T Data)
+void List<T>::push_back(const T &Data)
 {
 	if (pHead == nullptr)
 		pHead = new Node<T>(Data);
@@ -47,6 +57,18 @@ void List<T>::push_back(T Data)
 		pCurrent->pNext = new Node<T>(Data);
 	}
 	++iSize;
+}
+
+template<typename T>
+void List<T>::pop_front()
+{
+	Node<T> *Temp = pHead;
+
+	pHead = pHead->pNext;
+
+	delete Temp;
+
+	--iSize;
 }
 
 template<typename T>

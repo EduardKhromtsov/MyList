@@ -7,27 +7,32 @@ class List
 public:
 	List();
 
-	void push_back(T Data);
+	void push_back(const T &Data);
+
+	void pop_front();
+
+	void clear();
 
 	int GetSize() const;
 
 	T& operator[] (const int kIndex);
+
 private:
 	template<typename T>
 	class Node // Создаем вложенный класс для узлов односвязного списка.
 	{
 	public:
-		Node* pNext;
+		Node *pNext;
 		T Data;
 
-		Node(T Data = T(), Node* pNext = nullptr)
+		Node(const T &Data = T(), Node *pNext = nullptr)
 		{
 			this->Data = Data;
 			this->pNext = pNext;
 		}
 
 	};
-	Node<T>* pHead; // Указатель на самый первый элемент списка.
+	Node<T> *pHead; // Указатель на самый первый элемент списка.
 	int iSize; // Количество элементов односвязного списка.
 };
 
