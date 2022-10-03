@@ -11,6 +11,8 @@ public:
 
 	void push_back(const T &Data);
 
+	void push_front(const T &Data);
+
 	void pop_front();
 
 	void clear();

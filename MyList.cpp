@@ -61,6 +61,14 @@ void List<T>::push_back(const T &Data)
 }
 
 template<typename T>
+void List<T>::push_front(const T &Data)
+{
+	pHead = new Node<T>(Data, pHead);
+
+	++iSize;
+}
+
+template<typename T>
 void List<T>::pop_front()
 {
 	Node<T> *Temp = pHead;
