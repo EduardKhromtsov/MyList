@@ -14,7 +14,7 @@ int main()
 
 	lst.pop_back();
 
-	for (int i = 0; i < lst.GetSize(); ++i)
+	for (int i = 0; i < lst.length(); ++i)
 	{
 		std::cout << lst[i] << " ";
 	}

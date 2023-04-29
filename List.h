@@ -40,9 +40,9 @@ public:
 
 	void clear();
 
-	int GetSize() const;
+	int length() const;
 
-	T& operator[] (const int index);
+	T& operator[](const int index);
 };
 
 template<typename T>
@@ -147,7 +147,7 @@ void List<T>::clear()
 }
 
 template<typename T>
-int List<T>::GetSize() const
+int List<T>::length() const
 {
 	return size;
 }
